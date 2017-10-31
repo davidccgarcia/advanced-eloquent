@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('books', function () {
-    return App\Book::all();
+    return App\Book::withTrashed()->get();
 });
