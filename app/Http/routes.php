@@ -11,10 +11,28 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('books', function () {
     return App\Book::withTrashed()->get();
+});
+
+Route::get('delete', function () {
+    $books = App\Book::all();
+
+    return view('books.destroy', compact('books'));
+});
+
+Route::delete('destroy', function (Request $request) {
+    $books = $request->get('books');
+
+    if (count($books)) {
+        App\Book::destroy($books);
+    }
+
+    return back();
 });
