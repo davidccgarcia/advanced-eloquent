@@ -23,6 +23,7 @@ $factory->define(App\User::class, function ($faker) {
 $factory->define(App\Book::class, function ($faker) {
     return [
         'title' => $faker->name, 
-        'description' => $faker->text
+        'description' => $faker->text, 
+        'category_id' => $faker->randomElement([1, 2, 3])
     ];
 });

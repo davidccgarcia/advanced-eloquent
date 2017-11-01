@@ -36,3 +36,9 @@ Route::delete('destroy', function (Request $request) {
 
     return back();
 });
+
+Route::get('relationship', function () {
+    $categories = App\Category::all();
+
+    return view('relationship', compact('categories'));
+});
