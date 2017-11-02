@@ -9,17 +9,17 @@
     <ul>
     @foreach ($categories as $category)
         <li>
-            {{ $category->name }} - ({{ count($category->books) }} Libros)
+            {{ $category->name }} - ({{ $category->num_books }} Libros)
         </li>
         
-        <ul>
+        <ol>
             
         @foreach ($category->books as $book)
             <li>
                 <strong>{{ $book->title }}: </strong> {{ $book->description }}
             </li>
         @endforeach
-        </ul>
+        </ol>
     @endforeach
     </ul>
 </body>

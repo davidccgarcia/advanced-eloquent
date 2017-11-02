@@ -11,4 +11,10 @@ class Category extends Model
     {
         return $this->hasMany(Book::class);
     }
+
+    // Accesor - num_books
+    public function getNumBooksAttribute()
+    {
+        return count($this->books);
+    }
 }

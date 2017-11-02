@@ -38,7 +38,7 @@ Route::delete('destroy', function (Request $request) {
 });
 
 Route::get('relationship', function () {
-    $categories = App\Category::all();
+    $categories = App\Category::has('books')->get();
 
     return view('relationship', compact('categories'));
 });
