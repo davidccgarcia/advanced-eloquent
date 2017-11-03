@@ -33,8 +33,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
-    public function books()
+    public function manyBooks()
     {
         return $this->belongsToMany(Book::class);
+    }
+
+    public function getBooksAttribute()
+    {
+        return $this->manyBooks()->lists('book_id')->toArray();
     }
 }

@@ -10,9 +10,10 @@
     <ul>
     @foreach ($users as $user)
         <li>
-            <strong>Autor: </strong>{{ $user->name }}
+            <strong>Autor: </strong>{{ $user->name }} 
+            <a href="{{ route('getEdit', $user->id) }}">Editar</a>
             <ol>
-            @foreach ($user->books as $book)
+            @foreach ($user->manyBooks as $book)
                 <li>{{ $book->title }}</li>
             @endforeach
             </ol>

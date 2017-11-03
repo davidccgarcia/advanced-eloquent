@@ -48,5 +48,15 @@ Route::get('relationship', function () {
 Route::get('manytomany', function () {
     $users = App\User::all();
 
-    return view('manytomany', compact('users'));
+    return view('manytomany.index', compact('users'));
 });
+
+Route::get('edit-manytomany/{user_id}', [
+    'as' => 'getEdit', 
+    'uses' => 'UserController@getEditManyToMany'
+]);
+
+Route::put('putEdit/{user_id}', [
+    'as' => 'putEdit', 
+    'uses' => 'UserController@putEditManyToMany'
+]);
