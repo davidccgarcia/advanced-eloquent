@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->string('title', 100);
             $table->text('description');
+            $table->enum('status', ['public', 'draft'])->default('draft');
 
             $table->softDeletes(); // delete_at
             $table->timestamps();

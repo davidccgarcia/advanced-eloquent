@@ -11,15 +11,6 @@
         <li>
             {{ $category->name }} - ({{ $category->num_books }} Libros)
         </li>
-        
-        <ol>
-            
-        @foreach ($category->books as $book)
-            <li>
-                <strong>{{ $book->title }}: </strong> {{ $book->description }}
-            </li>
-        @endforeach
-        </ol>
     @endforeach
     </ul>
 </body>
