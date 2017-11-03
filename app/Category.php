@@ -15,6 +15,11 @@ class Category extends Model
     // Accesor - num_books
     public function getNumBooksAttribute()
     {
-        return count($this->books);
+        return count($this->books->where('status', 'public'));
+    }
+
+    public function getPublicBooksAttribute()
+    {
+        return $this->books->where('status', 'public');
     }
 }
