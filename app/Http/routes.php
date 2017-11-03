@@ -44,3 +44,9 @@ Route::get('relationship', function () {
 
     return view('relationship', compact('categories'));
 });
+
+Route::get('manytomany', function () {
+    $users = App\User::all();
+
+    return view('manytomany', compact('users'));
+});
