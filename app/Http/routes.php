@@ -83,3 +83,18 @@ Route::get('joins', function () {
 
     return view('querybuilder.joins', compact('books'));
 });
+
+Route::get('pivotfields', function () {
+    $user = App\User::find(1);
+
+    echo $user->name;
+
+    foreach ($user->exams as $exam) {
+        echo "
+            <li>
+                {$exam->title} Nota: {$exam->pivot->score} 
+                Fecha: {$exam->pivot->created_at}
+            </li>
+            ";
+    }
+});

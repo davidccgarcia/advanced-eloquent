@@ -28,3 +28,9 @@ $factory->define(App\Book::class, function ($faker) {
         'category_id' => $faker->randomElement([1, 2, 3])
     ];
 });
+
+$factory->define(App\Exam::class, function ($faker) {
+    return [
+        'title' => $faker->name
+    ];
+});
