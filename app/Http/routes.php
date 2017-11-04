@@ -73,3 +73,13 @@ Route::get('querybuilder', function () {
 
     return view('querybuilder.index', compact('users'));
 });
+
+Route::get('joins', function () {
+    $books = DB::table('categories')
+        ->join('books', 'categories.id', '=', 'books.category_id')
+        ->where('books.status', 'public')
+        ->select('categories.name as category', 'books.title')
+        ->get();
+
+    return view('querybuilder.joins', compact('books'));
+});
