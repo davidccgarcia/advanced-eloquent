@@ -60,3 +60,16 @@ Route::put('putEdit/{user_id}', [
     'as' => 'putEdit', 
     'uses' => 'UserController@putEditManyToMany'
 ]);
+
+Route::get('querybuilder', function () {
+    // $users = DB::table('users')->get();
+    // $users =  DB::table('users')->where('name', 'Virginia Simonis PhD')->get();
+    // $users = DB::table('users')->where('name', 'Virginia Simonis PhD')
+        // ->value('email'); - Retrieving value = {{ $users }} 
+
+    // $users = DB::table('users')->select('name', 'email')->get();
+    $users = DB::table('users')->select('name as user_name', 'email')->get();
+
+
+    return view('querybuilder.index', compact('users'));
+});
