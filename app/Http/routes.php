@@ -98,3 +98,10 @@ Route::get('pivotfields', function () {
             ";
     }
 });
+
+Route::get('n+1', function () {
+    $books = App\Book::with('category', 'users')
+        ->get();
+
+    return view('n+1.index', compact('books'));
+});
