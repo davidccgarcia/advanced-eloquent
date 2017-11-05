@@ -111,3 +111,9 @@ Route::get('polymorphic', function () {
 
     return view('polymorphic.index', compact('page'));
 });
+
+Route::get('polymorphicmanytomany', function () {
+    $post = App\Post::find(6);
+
+    return view('polymorphic.manytomany', compact('post'));
+});
