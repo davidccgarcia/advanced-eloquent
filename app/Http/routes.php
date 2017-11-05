@@ -105,3 +105,9 @@ Route::get('n+1', function () {
 
     return view('n+1.index', compact('books'));
 });
+
+Route::get('polymorphic', function () {
+    $page = App\Page::find(11);
+
+    return view('polymorphic.index', compact('page'));
+});

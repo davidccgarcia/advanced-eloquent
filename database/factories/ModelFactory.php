@@ -34,3 +34,17 @@ $factory->define(App\Exam::class, function ($faker) {
         'title' => $faker->name
     ];
 });
+
+$factory->define(App\Page::class, function ($faker) {
+    return [
+        'title' => $faker->name, 
+        'body' => $faker->text
+    ];
+});
+
+$factory->define(App\Post::class, function ($faker) {
+    return [
+        'title' => $faker->name, 
+        'body' => $faker->text
+    ];
+});
